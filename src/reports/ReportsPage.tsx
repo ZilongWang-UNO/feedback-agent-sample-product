@@ -18,7 +18,7 @@ type AgentResult = {
 };
 
 export function ReportsPage() {
-  const [feedback, setFeedback] = useState("Clicking Export CSV crashes when no rows are loaded.");
+  const [feedback, setFeedback] = useState("");
   const [status, setStatus] = useState("Ready");
   const [result, setResult] = useState<AgentResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -89,7 +89,12 @@ export function ReportsPage() {
           This form sends feedback to the SDK backend. The backend analyzes the GitHub repository configured in its
           environment variables.
         </p>
-        <textarea value={feedback} onChange={(event) => setFeedback(event.target.value)} rows={4} />
+        <textarea
+          value={feedback}
+          onChange={(event) => setFeedback(event.target.value)}
+          placeholder="Describe an issue, question, or feature request for the configured GitHub project."
+          rows={4}
+        />
         <div className="feedback-actions">
           <button onClick={handleFeedbackSubmit} disabled={isSubmitting}>
             {isSubmitting ? "Processing..." : "Send Feedback"}
