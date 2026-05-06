@@ -62,6 +62,12 @@ th {
   margin-bottom: 12px;
 }
 
+.feedback-hint {
+  margin-top: -4px;
+  color: #687386;
+  line-height: 1.5;
+}
+
 textarea {
   width: 100%;
   box-sizing: border-box;

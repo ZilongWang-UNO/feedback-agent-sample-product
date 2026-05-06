@@ -85,6 +85,10 @@ export function ReportsPage() {
       </table>
       <section className="feedback-panel">
         <h2>Submit feedback</h2>
+        <p className="feedback-hint">
+          This form sends feedback to the SDK backend. The backend analyzes the GitHub repository configured in its
+          environment variables.
+        </p>
         <textarea value={feedback} onChange={(event) => setFeedback(event.target.value)} rows={4} />
         <div className="feedback-actions">
           <button onClick={handleFeedbackSubmit} disabled={isSubmitting}>
