@@ -20,12 +20,14 @@ type AgentResult = {
 export function ReportsPage() {
   const [feedback, setFeedback] = useState("");
   const [status, setStatus] = useState("Ready");
+  const [exportStatus, setExportStatus] = useState("No rows loaded");
   const [result, setResult] = useState<AgentResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const rows = undefined;
 
   function handleExportClick() {
     const csv = exportReport(rows);
+    setExportStatus(csv ? "CSV exported to console" : "No rows available to export");
     console.log(csv);
   }
 
@@ -69,6 +71,7 @@ export function ReportsPage() {
       <div className="toolbar">
         <strong>Quarterly revenue</strong>
         <button onClick={handleExportClick}>Export CSV</button>
+        <span>{exportStatus}</span>
       </div>
       <table>
         <thead>
